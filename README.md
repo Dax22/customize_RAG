@@ -53,6 +53,15 @@ python query.py "What did the Fed say about rates?"
 python app.py                   # runs Gradio at localhost:7860
 
 
+🔑 Secrets
+
+Name	Where it’s used	How to set
+GROQ_API_KEY	rag_groq() & Gradio chat	Colab Secrets or export GROQ_API_KEY=
+Groq Cloud uses an OpenAI‑compatible endpoint (https://api.groq.com/openai/v1)
+so the official openai client works unchanged.
+
+
+
 
 finance-news-rag/
 ├─ notebooks/                # Colab or Jupyter step-by-step
@@ -74,7 +83,14 @@ Groq Llama‑3 70B | 100–300 tok/s | typically < 1 s for 300 tokens
 Total answer time | ~1 s | context assembly + generation
 
 
+ Extending
+Swap in Mixtral 8×7B by changing MODEL_NAME.
 
+Point the scraper at any news site that allows HTML <p> extraction.
+
+Deploy app.py on Cloud Run or Fly.io for a always‑on endpoint.
+
+Schedule scrape.py daily via GitHub Actions → automatic index refresh.
 ---
 
 **How to use**
